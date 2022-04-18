@@ -1,0 +1,166 @@
+1.	> use universitas
+	switched to db universitas
+
+
+
+
+
+2.	> db.mahasiswa.createIndex({"email":1},{unique:true})
+	{
+	        "numIndexesBefore" : 1,
+	        "numIndexesAfter" : 2,
+	        "createdCollectionAutomatically" : true,
+	        "ok" : 1
+	}
+
+
+
+
+
+3.	> db.mahasiswa.insert([
+	... {nim:"111",nama:"Joko Purwono",email:"jokopurwono@yahoo.com",phone:"089812345678"},
+	... {nim:"112",nama:"Widya Kosasih",email:"widyakosasih@gmail.com",phone:"085769553853"},
+	... {nim:"113",nama:"Hanung Bramantyo",email:"hanungbra@yahoo.com",phone:"082183729013"},
+	... {nim:"114",nama:"Robby Purba",email:"robbypurba@gmail.com",phone:"087709241345"},
+	... {nim:"115",nama:"Nining Herawati",email:"herawatinining123@gmail.com",phone:"085638391042"},
+	... {nim:"116",nama:"M. Nurreza Hidayat",email:"rezahidayat@gmail.com",phone:"082293750135"},
+	... {nim:"117",nama:"Rahmad Ibrahim",email:"ibrahimrahmaddd@yahoo.com",phone:"081339519352"},
+	... {nim:"118",nama:"Meilani Fifi",email:"fifimeilani93@gmail.com",phone:"089810917249"},
+	... {nim:"119",nama:"Alica Nur Jannah",email:"alicajannah@gmail.com",phone:"087712497535"},
+	... {nim:"120",nama:"Benny Sucipto",email:"bennysu@yahoo.com",phone:"082212497953"}
+	... ]);
+	BulkWriteResult({
+	        "writeErrors" : [ ],
+	        "writeConcernErrors" : [ ],
+	        "nInserted" : 10,
+	        "nUpserted" : 0,
+	        "nMatched" : 0,
+	        "nModified" : 0,
+	        "nRemoved" : 0,
+	        "upserted" : [ ]
+	})
+	> db.mahasiswa.find().pretty()
+	{
+	        "_id" : ObjectId("625bcc58200952bacf3e7ec9"),
+	        "nim" : "111",
+	        "nama" : "Joko Purwono",
+	        "email" : "jokopurwono@yahoo.com",
+	        "phone" : "089812345678"
+	}
+	{
+	        "_id" : ObjectId("625bcc58200952bacf3e7eca"),
+	        "nim" : "112",
+	        "nama" : "Widya Kosasih",
+	        "email" : "widyakosasih@gmail.com",
+	        "phone" : "085769553853"	
+	}
+	{
+	        "_id" : ObjectId("625bcc58200952bacf3e7ecb"),
+	        "nim" : "113",
+	        "nama" : "Hanung Bramantyo",
+	        "email" : "hanungbra@yahoo.com",
+	        "phone" : "082183729013"
+	}
+	{
+	        "_id" : ObjectId("625bcc58200952bacf3e7ecc"),
+	        "nim" : "114",
+	        "nama" : "Robby Purba",
+	        "email" : "robbypurba@gmail.com",
+	        "phone" : "087709241345"
+	}
+	{
+	        "_id" : ObjectId("625bcc58200952bacf3e7ecd"),
+	        "nim" : "115",
+	        "nama" : "Nining Herawati",
+	        "email" : "herawatinining123@gmail.com",
+	        "phone" : "085638391042"
+	}
+	{
+	        "_id" : ObjectId("625bcc58200952bacf3e7ece"),
+	        "nim" : "116",
+	        "nama" : "M. Nurreza Hidayat",
+	        "email" : "rezahidayat@gmail.com",
+	        "phone" : "082293750135"
+	}
+	{
+	        "_id" : ObjectId("625bcc58200952bacf3e7ecf"),
+	        "nim" : "117",
+	        "nama" : "Rahmad Ibrahim",
+	        "email" : "ibrahimrahmaddd@yahoo.com",
+	        "phone" : "081339519352"
+	}
+	{
+	        "_id" : ObjectId("625bcc58200952bacf3e7ed0"),
+	        "nim" : "118",
+	        "nama" : "Meilani Fifi",
+	        "email" : "fifimeilani93@gmail.com",
+	        "phone" : "089810917249"
+	}
+	{
+	        "_id" : ObjectId("625bcc58200952bacf3e7ed1"),
+	        "nim" : "119",
+	        "nama" : "Alica Nur Jannah",
+	        "email" : "alicajannah@gmail.com",
+	        "phone" : "087712497535"
+	}
+	{
+	        "_id" : ObjectId("625bcc58200952bacf3e7ed2"),
+	        "nim" : "120",
+	        "nama" : "Benny Sucipto",
+	        "email" : "bennysu@yahoo.com",
+	        "phone" : "082212497953"
+	}
+	>
+
+
+
+
+
+
+4.	> db.mahasiswa.find().sort({nama:1})
+	{ "_id" : ObjectId("625bcc58200952bacf3e7ed1"), "nim" : "119", "nama" : "Alica Nur Jannah", "email" : "alicajannah@gmail.com", "phone" : "087712497535" }
+	{ "_id" : ObjectId("625bcc58200952bacf3e7ed2"), "nim" : "120", "nama" : "Benny Sucipto", "email" : "bennysu@yahoo.com", "phone" : "082212497953" }
+	{ "_id" : ObjectId("625bcc58200952bacf3e7ecb"), "nim" : "113", "nama" : "Hanung Bramantyo", "email" : "hanungbra@yahoo.com", "phone" : "082183729013" }
+	{ "_id" : ObjectId("625bcc58200952bacf3e7ec9"), "nim" : "111", "nama" : "Joko Purwono", "email" : "jokopurwono@yahoo.com", "phone" : "089812345678" }
+	{ "_id" : ObjectId("625bcc58200952bacf3e7ece"), "nim" : "116", "nama" : "M. Nurreza Hidayat", "email" : "rezahidayat@gmail.com", "phone" : "082293750135" }
+	{ "_id" : ObjectId("625bcc58200952bacf3e7ed0"), "nim" : "118", "nama" : "Meilani Fifi", "email" : "fifimeilani93@gmail.com", "phone" : "089810917249" }
+	{ "_id" : ObjectId("625bcc58200952bacf3e7ecd"), "nim" : "115", "nama" : "Nining Herawati", "email" : "herawatinining123@gmail.com", "phone" : "085638391042" }
+	{ "_id" : ObjectId("625bcc58200952bacf3e7ecf"), "nim" : "117", "nama" : "Rahmad Ibrahim", "email" : "ibrahimrahmaddd@yahoo.com", "phone" : "081339519352" }
+	{ "_id" : ObjectId("625bcc58200952bacf3e7ecc"), "nim" : "114", "nama" : "Robby Purba", "email" : "robbypurba@gmail.com", "phone" : "087709241345" }
+	{ "_id" : ObjectId("625bcc58200952bacf3e7eca"), "nim" : "112", "nama" : "Widya Kosasih", "email" : "widyakosasih@gmail.com", "phone" : "085769553853" }
+	>
+
+
+
+
+
+
+5.	> db.mahasiswa.find({nama:"Joko Purwono"})
+	{ "_id" : ObjectId("625bcc58200952bacf3e7ec9"), "nim" : "111", "nama" : "Joko Purwono", "email" : "jokopurwono@yahoo.com", "phone" : "089812345678" }
+	> db.mahasiswa.update(
+	... {nama:"Joko Purwono"},
+	... {$set:{nama:"Joko Dwi Purwono"}},
+	... false,true
+	... )
+	WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+	> db.mahasiswa.find({nama:"Joko Purwono"})
+	> db.mahasiswa.find({nama:"Joko Dwi Purwono"})
+	{ "_id" : ObjectId("625bcc58200952bacf3e7ec9"), "nim" : "111", "nama" : "Joko Dwi Purwono", "email" : "jokopurwono@yahoo.com", "phone" : "089812345678" }
+	>
+
+
+
+
+
+
+6.	> db.mahasiswa.find({nama:"Benny Sucipto"})
+	{ "_id" : ObjectId("625bcc58200952bacf3e7ed2"), "nim" : "120", "nama" : "Benny Sucipto", "email" : "bennysu@yahoo.com", "phone" : "082212497953" }	
+	> db.mahasiswa.update(
+	... {nama:"Benny Sucipto"},
+	... {$set:{email:"bennyofficial@gmail.com"}},
+	... false,true
+	... )
+	WriteResult({ "nMatched" : 1, "nUpserted" : 0, "nModified" : 1 })
+	> db.mahasiswa.find({nama:"Benny Sucipto"})
+	{ "_id" : ObjectId("625bcc58200952bacf3e7ed2"), "nim" : "120", "nama" : "Benny Sucipto", "email" : "bennyofficial@gmail.com", "phone" : "082212497953" }
+	>
